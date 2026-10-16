@@ -1,0 +1,58 @@
+export const businessTypesData = [
+  {
+    title: "Kirana & Grocery Shops",
+    hindiName: "किराना एवं जनरल स्टोर",
+    description: "Manage fast-moving items, daily cash sales, customer Udhaar khata, and instant stock balance checks.",
+    icon: "Store",
+    tag: "High Volume",
+  },
+  {
+    title: "Clothing & Garments",
+    hindiName: "कपड़ा और परिधान",
+    description: "Keep track of apparel stock, customer sizes/styles, returns, and daily sales tally without messy paper registers.",
+    icon: "Shirt",
+    tag: "Retail",
+  },
+  {
+    title: "Mobile & Electronics",
+    hindiName: "मोबाइल और इलेक्ट्रॉनिक शॉप",
+    description: "Record phone accessories, gadgets, supplier invoices, sales bills, and warranty or return entries accurately.",
+    icon: "Smartphone",
+    tag: "Electronics",
+  },
+  {
+    title: "Hardware & Electricals",
+    hindiName: "हार्डवेयर और इलेक्ट्रिकल्स",
+    description: "Track hundreds of small parts, tools, distributor purchases, and contractor customer ledger accounts.",
+    icon: "Wrench",
+    tag: "Trade & Tools",
+  },
+  {
+    title: "Cosmetics & Beauty Stores",
+    hindiName: "कॉस्मेटिक और ब्यूटी स्टोर",
+    description: "Monitor product batches, expiration-sensitive items, quick checkout sales, and daily shop expenses.",
+    icon: "Sparkles",
+    tag: "Beauty & Care",
+  },
+  {
+    title: "General Stores & Stationary",
+    hindiName: "जनरल मर्चेंट और स्टेशनरी",
+    description: "Speed up counter billing during rush hours and easily spot which items are running out of stock.",
+    icon: "ShoppingBag",
+    tag: "Stationery",
+  },
+  {
+    title: "Local Retailers & Footwear",
+    hindiName: "लोकल रिटेलर्स और फुटवियर",
+    description: "Simple product catalog, daily sales records, profit understanding, and safe offline record keeping.",
+    icon: "Footprints",
+    tag: "Footwear & Retail",
+  },
+  {
+    title: "Wholesale & Small Traders",
+    hindiName: "छोटे व्यापारी और डिस्ट्रीब्यूटर्स",
+    description: "Manage bulk purchases, supplier ledgers, stock out entries, and inventory value with confidence.",
+    icon: "Building2",
+    tag: "Trading",
+  },
+];

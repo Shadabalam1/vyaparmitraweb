@@ -1,0 +1,75 @@
+/**
+ * Vyapar Mitra Central Configuration
+ *
+ * To enable the live Google Play Store download button across the entire website,
+ * simply paste the official Google Play Store URL into PLAY_STORE_URL below.
+ * When empty (""), all buttons throughout the site automatically display
+ * "Coming Soon on Google Play" without any broken links or fake store badges.
+ */
+export const PLAY_STORE_URL = "";
+
+export const siteConfig = {
+  name: "Vyapar Mitra",
+  tagline: "Manage Inventory | Grow Business",
+  domain: "https://vyaparmitra.xyz",
+  appStatus: "Coming Soon on Google Play",
+  
+  // Hero Copy
+  hero: {
+    headline: "Apne Business Ka Hisab, Ab Bilkul Aasaan.",
+    subheadline: "Vyapar Mitra ke saath stock, sales, purchases, expenses aur business performance ko ek hi jagah manage karein.",
+    primaryCtaText: "Explore Features",
+    secondaryCtaFallback: "Coming Soon on Google Play",
+  },
+
+  // Contact Information
+  contact: {
+    email: "vyaparmitra@gmail.com",
+    location: "India",
+    helpHours: "Monday to Saturday, 9:00 AM - 7:00 PM IST",
+    responseTime: "Usually responds within 24 hours",
+  },
+
+  // Navigation Links
+  navLinks: [
+    { label: "Home", path: "/" },
+    { label: "Features", path: "/features" },
+    { label: "About", path: "/about" },
+    { label: "FAQ", path: "/faq" },
+    { label: "Contact", path: "/contact" },
+  ],
+
+  // Footer Navigation
+  footerLinks: {
+    product: [
+      { label: "Overview", path: "/" },
+      { label: "Features", path: "/features" },
+      { label: "App Showcase", path: "/#showcase" },
+      { label: "How It Works", path: "/#how-it-works" },
+      { label: "Who Is It For", path: "/#who-is-it-for" },
+    ],
+    company: [
+      { label: "About Us", path: "/about" },
+      { label: "FAQ", path: "/faq" },
+      { label: "Contact Us", path: "/contact" },
+    ],
+    legal: [
+      { label: "Privacy Policy", path: "/privacy-policy" },
+      { label: "Terms & Conditions", path: "/terms" },
+    ],
+  },
+
+  // Official Social Media Handles
+  socialLinks: [
+    {
+      name: "Instagram",
+      handle: "@vyaparmitraapp",
+      url: "https://www.instagram.com/vyaparmitraapp/",
+    },
+    {
+      name: "Facebook",
+      handle: "@vyaparmitraapp",
+      url: "https://www.facebook.com/vyaparmitraapp",
+    },
+  ],
+};
