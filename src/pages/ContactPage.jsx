@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SEOHead from "../components/common/SEOHead";
 import { siteConfig } from "../config/siteConfig";
-import { Mail, Clock, MapPin, Send, CheckCircle2, ShieldCheck, HelpCircle } from "lucide-react";
+import { Mail, Clock, MapPin, Send, CheckCircle2, ShieldCheck, HelpCircle, ExternalLink } from "lucide-react";
 
 import { submitContactForm } from "../utils/formSubmit";
 
@@ -31,12 +31,45 @@ export default function ContactPage() {
     }
   };
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Vyapar Mitra Support & Headquarters",
+    "description": "Official merchant support and contact details for Vyapar Mitra in Adibatla, Hyderabad, Telangana, India.",
+    "url": "https://vyaparmitra.xyz/contact",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Vyapar Mitra",
+      "email": siteConfig.contact.email,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Adibatla",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "501510",
+        "addressCountry": "IN",
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.2342,
+        "longitude": 78.5320,
+      },
+      "openingHours": "Mo-Sa 09:00-19:00",
+      "sameAs": [
+        "https://www.instagram.com/vyaparmitraapp/",
+        "https://www.facebook.com/vyaparmitraapp",
+      ],
+    },
+  };
+
   return (
     <>
       <SEOHead
         title="Contact Us | Support &amp; Enquiries"
-        description="Get in touch with the Vyapar Mitra team for general questions, app feedback, or early access enquiries."
+        description="Contact the Vyapar Mitra team in Adibatla, Hyderabad, Telangana for merchant support, app feedback, or partnership queries."
         canonicalPath="/contact"
+        keywords="Contact Vyapar Mitra, Vyapar Mitra support email, Adibatla Hyderabad office, Telangana business app support, vyaparmitraapp@gmail.com, Hyderabad local business software"
+        schemaJson={contactSchema}
       />
 
       <section className="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
@@ -133,11 +166,20 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900">Location</h3>
+                  <div className="flex-1">
+                    <h3 className="text-sm font-bold text-slate-900">Registered Office &amp; Development</h3>
                     <p className="text-xs text-slate-700 font-medium mt-0.5">
-                      {siteConfig.contact.location}
+                      Adibatla, Hyderabad, Telangana — 501510, India
                     </p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Adibatla+Hyderabad+Telangana+501510"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] text-emerald-800 font-semibold hover:underline mt-1.5"
+                    >
+                      <span>View on Google Maps</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
               </div>

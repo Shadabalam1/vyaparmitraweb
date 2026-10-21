@@ -39,6 +39,10 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-emerald-400" />
                 <span>{siteConfig.contact.email}</span>
               </a>
+              <div className="flex items-center space-x-2 text-xs text-slate-400">
+                <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Adibatla, Hyderabad, Telangana, India</span>
+              </div>
             </div>
 
             {/* Social Media Links */}
@@ -136,10 +140,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© 2026 Vyapar Mitra. All rights reserved.</p>
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-center">
             <span className="text-slate-500">Official Domain: vyaparmitra.xyz</span>
             <span>•</span>
-            <span className="text-slate-400">Built for Indian Small Businesses</span>
+            <span className="text-slate-400">Adibatla, Hyderabad, Telangana, India</span>
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ import {
 export default function PhoneMockup({ screenId = "dashboard", imageSrc = null }) {
   if (imageSrc) {
     return (
-      <div className="relative mx-auto w-[310px] sm:w-[340px] rounded-[42px] border-[8px] border-slate-900 bg-slate-900 shadow-2xl overflow-hidden aspect-[9/19]">
+      <div className="relative mx-auto w-full max-w-[285px] xs:max-w-[310px] sm:max-w-[340px] rounded-[36px] sm:rounded-[42px] border-[6px] sm:border-[8px] border-slate-900 bg-slate-900 shadow-2xl overflow-hidden aspect-[9/19]">
         <img
           src={imageSrc}
           alt={`Vyapar Mitra ${screenId} screen`}
@@ -36,7 +36,7 @@ export default function PhoneMockup({ screenId = "dashboard", imageSrc = null })
   }
 
   return (
-    <div className="relative mx-auto w-[310px] sm:w-[340px] rounded-[42px] border-[8px] border-slate-900 bg-slate-900 shadow-2xl overflow-hidden aspect-[9/19.2] flex flex-col font-sans select-none text-slate-800">
+    <div className="relative mx-auto w-full max-w-[285px] xs:max-w-[310px] sm:max-w-[340px] rounded-[36px] sm:rounded-[42px] border-[6px] sm:border-[8px] border-slate-900 bg-slate-900 shadow-2xl overflow-hidden aspect-[9/19.2] flex flex-col font-sans select-none text-slate-800">
       {/* Phone Hardware Details */}
       {/* Punch Hole Camera */}
       <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-black rounded-full z-30 ring-1 ring-slate-800/60" />

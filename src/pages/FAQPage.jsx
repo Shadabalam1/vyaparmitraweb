@@ -21,12 +21,27 @@ export default function FAQPage() {
       faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <SEOHead
-        title="FAQ | Frequently Asked Questions & Help"
+        title="FAQ | Frequently Asked Questions &amp; Help"
         description="Find clear and honest answers about Vyapar Mitra: inventory features, sales recording, expenses, profit tracking, offline functionality and Google Play launch."
         canonicalPath="/faq"
+        keywords="Vyapar Mitra FAQ, inventory app questions, retail POS offline help, Udhaar Khata support, billing app India guide"
+        schemaJson={faqSchema}
       />
 
       <section className="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">

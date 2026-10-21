@@ -3,7 +3,7 @@
  * 
  * To receive form submissions straight into your Gmail:
  * 1. Go to https://web3forms.com
- * 2. Enter your email (vyaparmitra@gmail.com)
+ * 2. Enter your email (vyaparmitraapp@gmail.com)
  * 3. Copy the access key and paste it into .env as:
  *    VITE_WEB3FORMS_ACCESS_KEY=your_key_here
  */

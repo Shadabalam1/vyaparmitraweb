@@ -8,6 +8,7 @@ import FAQPage from "./pages/FAQPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
+import DeleteAccountPage from "./pages/DeleteAccountPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="faq" element={<FAQPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="delete-account" element={<DeleteAccountPage />} />
           <Route path="terms" element={<TermsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

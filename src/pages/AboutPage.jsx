@@ -4,12 +4,36 @@ import { siteConfig } from "../config/siteConfig";
 import { Heart, Target, Shield, Compass, Sparkles, CheckCircle2 } from "lucide-react";
 
 export default function AboutPage() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Vyapar Mitra",
+    "description": "Learn about the mission, values, and origin of the Vyapar Mitra Android application, developed by Shadab Alam in Hyderabad, Telangana.",
+    "url": "https://vyaparmitra.xyz/about",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Vyapar Mitra",
+      "founder": {
+        "@type": "Person",
+        "name": "Shadab Alam",
+      },
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Adibatla, Hyderabad, Telangana, India",
+      },
+      "url": "https://vyaparmitra.xyz",
+      "logo": "https://vyaparmitra.xyz/images/vyapar-mitra-logo-circle.jpg",
+    },
+  };
+
   return (
     <>
       <SEOHead
         title="About Us | Our Mission for Small Businesses"
-        description="Learn about Vyapar Mitra: why we built a simple, practical Android business management app for Indian shopkeepers and retailers without enterprise complexity."
+        description="Learn about Vyapar Mitra: why we built a simple, practical Android business management app for Indian shopkeepers and retailers, developed in Hyderabad, Telangana."
         canonicalPath="/about"
+        keywords="About Vyapar Mitra, Indian MSME business software, Hyderabad startup, Adibatla Telangana, retail inventory management app, Shadab Alam developer"
+        schemaJson={aboutSchema}
       />
 
       {/* Page Header */}
@@ -97,10 +121,10 @@ export default function AboutPage() {
           {/* Official Domain & Brand Note */}
           <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl space-y-3">
             <h4 className="text-lg font-bold text-emerald-300">
-              Official Product Website
+              Official Product Website &amp; Headquarters
             </h4>
             <p className="text-sm text-slate-300 leading-relaxed">
-              This website (<strong className="text-white">vyaparmitra.xyz</strong>) is the sole official web presence of Vyapar Mitra. The Android application is currently in final testing and will launch directly on the Google Play Store.
+              This website (<strong className="text-white">vyaparmitra.xyz</strong>) is the sole official web presence of Vyapar Mitra. Developed by <strong>Shadab Alam</strong>, headquartered in <strong>Adibatla, Hyderabad, Telangana, India</strong>. The Android application is published directly on the Google Play Store for small businesses across India.
             </p>
           </div>
         </div>

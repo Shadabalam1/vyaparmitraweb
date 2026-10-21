@@ -1,0 +1,26 @@
+{
+  "name": "Vyapar Mitra - Business & Inventory Management",
+  "short_name": "Vyapar Mitra",
+  "description": "Offline-first inventory management, billing POS, daily sales tracking, and ledger khata app for Indian small businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d5338",
+  "orientation": "portrait-primary",
+  "lang": "en-IN",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/images/vyapar-mitra-logo-circle.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/vyapar-mitra-logo-square.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

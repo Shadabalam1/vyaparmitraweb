@@ -24,8 +24,9 @@ export const siteConfig = {
 
   // Contact Information
   contact: {
-    email: "vyaparmitra@gmail.com",
-    location: "India",
+    email: "vyaparmitraapp@gmail.com",
+    address: "Adibatla, Hyderabad, Telangana, India",
+    location: "Adibatla, Hyderabad, India",
     helpHours: "Monday to Saturday, 9:00 AM - 7:00 PM IST",
     responseTime: "Usually responds within 24 hours",
   },
@@ -56,6 +57,7 @@ export const siteConfig = {
     legal: [
       { label: "Privacy Policy", path: "/privacy-policy" },
       { label: "Terms & Conditions", path: "/terms" },
+      { label: "Account & Data Deletion", path: "/delete-account" },
     ],
   },
 

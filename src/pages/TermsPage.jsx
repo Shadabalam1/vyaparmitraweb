@@ -3,12 +3,28 @@ import SEOHead from "../components/common/SEOHead";
 import { siteConfig } from "../config/siteConfig";
 
 export default function TermsPage() {
+  const termsSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Vyapar Mitra Terms & Conditions",
+    "description": "Terms and conditions governing the use of the Vyapar Mitra website and Android application.",
+    "url": "https://vyaparmitra.xyz/terms",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Vyapar Mitra",
+      "url": "https://vyaparmitra.xyz",
+      "email": "vyaparmitraapp@gmail.com",
+    },
+  };
+
   return (
     <>
       <SEOHead
         title="Terms &amp; Conditions | Terms of Service"
-        description="Terms and conditions governing the use of the Vyapar Mitra website (vyaparmitra.xyz) and the forthcoming Android application."
+        description="Terms and conditions governing the use of the Vyapar Mitra website (vyaparmitra.xyz) and the Android application."
         canonicalPath="/terms"
+        keywords="Vyapar Mitra terms of service, commercial terms, software agreement India, user license agreement"
+        schemaJson={termsSchema}
       />
 
       <section className="py-12 sm:py-16 bg-slate-50 border-b border-slate-200">
@@ -27,14 +43,7 @@ export default function TermsPage() {
 
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-10 text-xs sm:text-sm text-amber-900 space-y-1">
-            <p className="font-bold">
-              Notice for Website Administrator / Legal Representative:
-            </p>
-            <p>
-              These Terms and Conditions set forth standard guidelines for a business inventory utility application. Specific business registration, GSTIN, or legal entity names can be inserted in the designated brackets prior to the Google Play Store deployment.
-            </p>
-          </div>
+          {/* Verified Legal Document */}
 
           <div className="prose prose-slate max-w-none text-slate-700 space-y-8 text-sm sm:text-base leading-relaxed">
             <div>
@@ -87,7 +96,7 @@ export default function TermsPage() {
                 4. Intellectual Property Rights
               </h2>
               <p>
-                All brand names, trademarks, logos, graphical mockups, visual assets, and website codebase associated with "Vyapar Mitra" and vyaparmitra.xyz are the exclusive intellectual property of [Insert Entity Name / Developer]. Unauthorized reproduction, reverse engineering, or modification is prohibited without prior written consent.
+                All brand names, trademarks, logos, graphical mockups, visual assets, and website codebase associated with "VyaPar Mitra" and vyaparmitra.xyz are the exclusive intellectual property of Shadab Alam (VyaPar Mitra). Unauthorized reproduction, reverse engineering, or modification is prohibited without prior written consent.
               </p>
             </div>
 
@@ -96,7 +105,7 @@ export default function TermsPage() {
                 5. Limitation of Liability
               </h2>
               <p>
-                Vyapar Mitra is provided on an "as is" and "as available" basis. To the maximum extent permitted under applicable law, the creators and operators of Vyapar Mitra shall not be liable for any indirect, incidental, or consequential damages resulting from lost sales, hardware malfunctions, data entry errors, or business disruptions.
+                VyaPar Mitra is provided on an "as is" and "as available" basis. To the maximum extent permitted under applicable law, the creators and operators of VyaPar Mitra shall not be liable for any indirect, incidental, or consequential damages resulting from lost sales, hardware malfunctions, data entry errors, or business disruptions.
               </p>
             </div>
 
@@ -105,7 +114,7 @@ export default function TermsPage() {
                 6. Governing Law &amp; Jurisdiction
               </h2>
               <p>
-                These terms shall be governed and interpreted in accordance with the laws of India. Any disputes arising in connection with the application or website shall be subject to the exclusive jurisdiction of the competent courts in [Insert City / State, India].
+                These terms shall be governed and interpreted in accordance with the laws of India. Any disputes arising in connection with the application or website shall be subject to the exclusive jurisdiction of the competent courts in India.
               </p>
             </div>
 
@@ -115,10 +124,10 @@ export default function TermsPage() {
               </h2>
               <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1 text-sm">
                 <p>
-                  <strong>Entity:</strong> [Insert Entity / Publisher Name]
+                  <strong>Entity:</strong> VyaPar Mitra (Developer: Shadab Alam)
                 </p>
                 <p>
-                  <strong>Email:</strong>{" "}
+                  <strong>Official Email:</strong>{" "}
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
                     className="text-emerald-700 underline font-semibold"
@@ -127,7 +136,13 @@ export default function TermsPage() {
                   </a>
                 </p>
                 <p>
+                  <strong>Physical Address / Registered Office:</strong> Adibatla, Hyderabad, Telangana, India
+                </p>
+                <p>
                   <strong>Official Website:</strong> https://vyaparmitra.xyz
+                </p>
+                <p>
+                  <strong>Governing Jurisdiction:</strong> Hyderabad, Telangana, India
                 </p>
               </div>
             </div>

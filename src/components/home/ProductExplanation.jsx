@@ -1,33 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import SectionHeading from "../common/SectionHeading";
-import { BookMarked, Calculator, Clock3, SmartphoneNfc } from "lucide-react";
+import {
+  BookMarked,
+  Calculator,
+  Clock3,
+  SmartphoneNfc,
+  XCircle,
+  CheckCircle2,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 
 export default function ProductExplanation() {
-  const points = [
+  const [activeTab, setActiveTab] = useState("smart");
+
+  const comparisons = [
     {
-      icon: BookMarked,
-      title: "Purane Khaton Aur Diary Se Azaadi",
-      desc: "Kagaz ke register kho jane ya fati dairy ka dar khatam. Stock, sales aur grahak ka udhaar sab kuch aapke mobile mein surakshit rehta hai.",
+      problem: "Kagaz ke register kho jane ya barish mein bheeg jane ka darr",
+      solution: "Sab kuch aapke Android phone mein 100% offline aur surakshit",
+      tag: "Data Security",
     },
     {
-      icon: Calculator,
-      title: "Calculator Par Ghanton Ka Hisab Band",
-      desc: "Din ke ant mein calculator par ghanton hisab jodne ki zaroorat nahi. Vyapar Mitra aaj ki bikri, kharch aur bacha hua munafa khud dikhata hai.",
+      problem: "Raat ko dukan band karke calculator par ghanton hisab jodna",
+      solution: "Aaj ki bikri, kharch aur net munafa khud ba khud 1 click mein",
+      tag: "Auto P&L",
     },
     {
-      icon: Clock3,
-      title: "Dukan Ke Counter Par Tez Billing",
-      desc: "Grahak ki bheed mein tez aur aasan entry. Cash, UPI ya Udhaar chun kar sirf kuch seconds mein entry complete karein.",
+      problem: "Grahak se udhaar vasooli bhool jana ya hisab gadbad hona",
+      solution: "Customer wise balance aur clear Udhaar Khata ledger",
+      tag: "Udhaar Ledger",
     },
     {
-      icon: SmartphoneNfc,
-      title: "Seedha Android Phone Par Kaam Kare",
-      desc: "Bina kisi mehnge computer, barcode scanner ya mushkil software ke—ek aam Android phone par pura business sambhaliye.",
+      problem: "Counter par bheed hone par manual bill banane mein deri",
+      solution: "Sirf 10 seconds mein quick sales bill aur instant PDF invoice",
+      tag: "Fast POS",
     },
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/70">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200/70 relative overflow-hidden">
+      {/* Decorative background glow */}
+      <div className="absolute top-1/2 left-0 w-72 h-72 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-teal-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Product Overview"
@@ -35,29 +50,48 @@ export default function ProductExplanation() {
           subtitle="Vyapar Mitra ko khas taur par un dukaandaro aur chhote vyapariyon ke liye banaya gaya hai jo bina kisi mushkil software ke apni rozana ki bikri, stock, kharch aur accounts ko aasaani se sambhalna chahte hain."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {points.map((pt, idx) => {
-            const Icon = pt.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-xs hover:border-emerald-300 transition-all flex items-start space-x-4"
-              >
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0">
-                  <Icon className="w-6 h-6 text-emerald-800" />
+        {/* Interactive Comparison Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 mt-8 sm:mt-12">
+          {comparisons.map((item, idx) => (
+            <div
+              key={idx}
+              className="group p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-emerald-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-emerald-100 text-emerald-900 border border-emerald-200">
+                    {item.tag}
+                  </span>
+                  <span className="text-xs font-semibold text-slate-400">
+                    0{idx + 1}
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
-                    {pt.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                    {pt.desc}
-                  </p>
+
+                {/* Old way */}
+                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-rose-50/60 border border-rose-100 text-xs sm:text-sm text-slate-700">
+                  <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-rose-800 text-xs block mb-0.5">Purana Tarika:</span>
+                    <span>{item.problem}</span>
+                  </div>
+                </div>
+
+                {/* Vyapar Mitra way */}
+                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 text-xs sm:text-sm text-slate-800">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-emerald-900 text-xs block mb-0.5 flex items-center gap-1">
+                      Vyapar Mitra Solution:
+                      <Sparkles className="w-3 h-3 text-emerald-600" />
+                    </span>
+                    <span className="font-medium text-slate-900">{item.solution}</span>
+                  </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );

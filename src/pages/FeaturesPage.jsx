@@ -48,12 +48,36 @@ export default function FeaturesPage() {
       ? featuresData
       : featuresData.filter((f) => f.category === selectedCategory);
 
+  const featuresSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    "name": "Vyapar Mitra Features & Capabilities",
+    "description": "Explore all features of Vyapar Mitra: Inventory, Stock In/Out, Fast POS Sales, Expenses, Profit & Loss, Khatas and Offline local-first experience for Indian businesses.",
+    "url": "https://vyaparmitra.xyz/features",
+    "mainEntity": {
+      "@type": "SoftwareApplication",
+      "name": "Vyapar Mitra",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Android 7.0 and up",
+      "featureList": [
+        "Offline-First SQLite Database",
+        "Fast POS Barcode & Item Billing",
+        "Real-Time Stock In / Stock Out Alerts",
+        "Expense and Profit & Loss Analytics",
+        "Customer & Supplier Khata Ledgers",
+        "Manual Cloud Backup via Firestore",
+      ],
+    },
+  };
+
   return (
     <>
       <SEOHead
-        title="Features & Capabilities | All In One Business Management"
-        description="Explore all features of Vyapar Mitra: Inventory, Stock In/Out, Fast Sales, Expenses, Profit & Loss, Khatas and Offline local-first experience."
+        title="Features &amp; Capabilities | All In One Business Management"
+        description="Explore all features of Vyapar Mitra: Inventory, Stock In/Out, Fast POS Sales, Expenses, Profit &amp; Loss, Khatas and Offline local-first experience for Indian businesses."
         canonicalPath="/features"
+        keywords="Vyapar Mitra features, inventory control app, POS billing Android, stock alert software, Kirana ledger khata, MSME expense tracking India, retail POS app Hyderabad"
+        schemaJson={featuresSchema}
       />
 
       <div className="py-12 sm:py-16 bg-slate-50 border-b border-slate-200">

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://vyaparmitra.xyz/sitemap.xml
+Host: https://vyaparmitra.xyz
