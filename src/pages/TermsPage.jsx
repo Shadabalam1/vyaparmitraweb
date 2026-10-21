@@ -2,21 +2,21 @@ import React from "react";
 import SEOHead from "../components/common/SEOHead";
 import { siteConfig } from "../config/siteConfig";
 
-export default function TermsPage() {
-  const termsSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Vyapar Mitra Terms & Conditions",
-    "description": "Terms and conditions governing the use of the Vyapar Mitra website and Android application.",
-    "url": "https://vyaparmitra.xyz/terms",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Vyapar Mitra",
-      "url": "https://vyaparmitra.xyz",
-      "email": "vyaparmitraapp@gmail.com",
-    },
-  };
+const TERMS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Vyapar Mitra Terms & Conditions",
+  "description": "Terms and conditions governing the use of the Vyapar Mitra website and Android application.",
+  "url": "https://vyaparmitra.xyz/terms",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vyapar Mitra",
+    "url": "https://vyaparmitra.xyz",
+    "email": "vyaparmitraapp@gmail.com",
+  },
+};
 
+export default function TermsPage() {
   return (
     <>
       <SEOHead
@@ -24,7 +24,7 @@ export default function TermsPage() {
         description="Terms and conditions governing the use of the Vyapar Mitra website (vyaparmitra.xyz) and the Android application."
         canonicalPath="/terms"
         keywords="Vyapar Mitra terms of service, commercial terms, software agreement India, user license agreement"
-        schemaJson={termsSchema}
+        schemaJson={TERMS_SCHEMA}
       />
 
       <section className="py-12 sm:py-16 bg-slate-50 border-b border-slate-200">

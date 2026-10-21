@@ -24,58 +24,72 @@ import {
   Check,
 } from "lucide-react";
 
+const SECTIONS = [
+  { id: "introduction", title: "1. Introduction" },
+  { id: "information-we-collect", title: "2. Information We Collect" },
+  { id: "how-we-use-information", title: "3. How We Use Information" },
+  { id: "local-storage-and-offline-usage", title: "4. Local Storage and Offline Usage" },
+  { id: "firebase-and-third-party-services", title: "5. Firebase & Third-Party Services" },
+  { id: "google-sign-in", title: "6. Google Sign-In" },
+  { id: "google-play-billing", title: "7. Google Play Billing & Subscriptions" },
+  { id: "cloud-backup-and-restore", title: "8. Cloud Backup and Restore" },
+  { id: "data-sharing", title: "9. Data Sharing & Third-Party Access" },
+  { id: "data-security", title: "10. Data Security Measures" },
+  { id: "data-retention", title: "11. Data Retention Periods" },
+  { id: "account-and-data-deletion", title: "12. Account and Data Deletion" },
+  { id: "your-rights-and-choices", title: "13. Your Rights & Data Choices" },
+  { id: "childrens-privacy", title: "14. Children's Privacy" },
+  { id: "changes-to-policy", title: "15. Changes to This Privacy Policy" },
+  { id: "contact-us", title: "16. Contact Us & Grievance Redressal" },
+];
+
+const PRIVACY_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "VyaPar Mitra Privacy Policy",
+  "description": "Official Privacy Policy and Data Safety disclosures for VyaPar Mitra Android application (com.shadab.vyaparmitra).",
+  "url": "https://vyaparmitra.xyz/privacy-policy",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vyapar Mitra",
+    "url": "https://vyaparmitra.xyz",
+    "email": "vyaparmitraapp@gmail.com",
+  },
+};
+
 export default function PrivacyPolicyPage() {
   const [activeSection, setActiveSection] = useState("introduction");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-  const sections = [
-    { id: "introduction", title: "1. Introduction" },
-    { id: "information-we-collect", title: "2. Information We Collect" },
-    { id: "how-we-use-information", title: "3. How We Use Information" },
-    { id: "local-storage-and-offline-usage", title: "4. Local Storage and Offline Usage" },
-    { id: "firebase-and-third-party-services", title: "5. Firebase & Third-Party Services" },
-    { id: "google-sign-in", title: "6. Google Sign-In" },
-    { id: "google-play-billing", title: "7. Google Play Billing & Subscriptions" },
-    { id: "cloud-backup-and-restore", title: "8. Cloud Backup and Restore" },
-    { id: "data-sharing", title: "9. Data Sharing & Third-Party Access" },
-    { id: "data-security", title: "10. Data Security Measures" },
-    { id: "data-retention", title: "11. Data Retention Periods" },
-    { id: "account-and-data-deletion", title: "12. Account and Data Deletion" },
-    { id: "your-rights-and-choices", title: "13. Your Rights & Data Choices" },
-    { id: "childrens-privacy", title: "14. Children's Privacy" },
-    { id: "changes-to-policy", title: "15. Changes to This Privacy Policy" },
-    { id: "contact-us", title: "16. Contact Us & Grievance Redressal" },
-  ];
-
-  // Track active section on scroll
+  // Track active section on scroll without redundant re-renders
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 140;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i].id);
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i].id);
-          break;
-        }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + 160;
+          for (let i = SECTIONS.length - 1; i >= 0; i--) {
+            const el = document.getElementById(SECTIONS[i].id);
+            if (el && el.offsetTop <= scrollPosition) {
+              setActiveSection((prev) => (prev !== SECTIONS[i].id ? SECTIONS[i].id : prev));
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [sections]);
+  }, []);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+      element.scrollIntoView({ behavior: "smooth" });
       setActiveSection(id);
       setMobileNavOpen(false);
     }
@@ -85,20 +99,6 @@ export default function PrivacyPolicyPage() {
     window.print();
   };
 
-  const privacySchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "VyaPar Mitra Privacy Policy",
-    "description": "Official Privacy Policy and Data Safety disclosures for VyaPar Mitra Android application (com.shadab.vyaparmitra).",
-    "url": "https://vyaparmitra.xyz/privacy-policy",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Vyapar Mitra",
-      "url": "https://vyaparmitra.xyz",
-      "email": "vyaparmitraapp@gmail.com",
-    },
-  };
-
   return (
     <>
       <SEOHead
@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
         description="Official Privacy Policy for VyaPar Mitra Android app (com.shadab.vyaparmitra). Complete disclosures on local data storage, Firebase authentication, Firestore manual backup, and Google Play billing."
         canonicalPath="/privacy-policy"
         keywords="Vyapar Mitra privacy policy, Google Play data safety, com.shadab.vyaparmitra privacy, offline billing security, Firebase Firestore privacy India"
-        schemaJson={privacySchema}
+        schemaJson={PRIVACY_SCHEMA}
       />
 
       {/* Header Banner */}
@@ -148,7 +148,7 @@ export default function PrivacyPolicyPage() {
       {/* Mobile Table of Contents Sticky Bar */}
       <div className="lg:hidden sticky top-16 z-30 bg-slate-50 border-b border-slate-200 px-4 py-2.5 flex items-center justify-between text-xs print:hidden">
         <span className="font-semibold text-slate-700 truncate max-w-[240px]">
-          {sections.find((s) => s.id === activeSection)?.title || "Table of Contents"}
+          {SECTIONS.find((s) => s.id === activeSection)?.title || "Table of Contents"}
         </span>
         <button
           onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -165,7 +165,7 @@ export default function PrivacyPolicyPage() {
           <p className="text-xs font-bold uppercase tracking-wider text-slate-400 px-2 pb-2">
             Table of Contents
           </p>
-          {sections.map((section) => (
+          {SECTIONS.map((section) => (
             <button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
@@ -199,7 +199,7 @@ export default function PrivacyPolicyPage() {
                 </div>
                 
                 <nav className="space-y-1">
-                  {sections.map((section) => (
+                  {SECTIONS.map((section) => (
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}

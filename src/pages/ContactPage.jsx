@@ -5,6 +5,37 @@ import { Mail, Clock, MapPin, Send, CheckCircle2, ShieldCheck, HelpCircle, Exter
 
 import { submitContactForm } from "../utils/formSubmit";
 
+const CONTACT_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Vyapar Mitra Support & Headquarters",
+  "description": "Official merchant support and contact details for Vyapar Mitra in Adibatla, Hyderabad, Telangana, India.",
+  "url": "https://vyaparmitra.xyz/contact",
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": "Vyapar Mitra",
+    "email": siteConfig.contact.email,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Adibatla",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "501510",
+      "addressCountry": "IN",
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 17.2342,
+      "longitude": 78.5320,
+    },
+    "openingHours": "Mo-Sa 09:00-19:00",
+    "sameAs": [
+      "https://www.instagram.com/vyaparmitraapp/",
+      "https://www.facebook.com/vyaparmitraapp",
+    ],
+  },
+};
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -31,37 +62,6 @@ export default function ContactPage() {
     }
   };
 
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact Vyapar Mitra Support & Headquarters",
-    "description": "Official merchant support and contact details for Vyapar Mitra in Adibatla, Hyderabad, Telangana, India.",
-    "url": "https://vyaparmitra.xyz/contact",
-    "mainEntity": {
-      "@type": "LocalBusiness",
-      "name": "Vyapar Mitra",
-      "email": siteConfig.contact.email,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Adibatla",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "Telangana",
-        "postalCode": "501510",
-        "addressCountry": "IN",
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 17.2342,
-        "longitude": 78.5320,
-      },
-      "openingHours": "Mo-Sa 09:00-19:00",
-      "sameAs": [
-        "https://www.instagram.com/vyaparmitraapp/",
-        "https://www.facebook.com/vyaparmitraapp",
-      ],
-    },
-  };
-
   return (
     <>
       <SEOHead
@@ -69,7 +69,7 @@ export default function ContactPage() {
         description="Contact the Vyapar Mitra team in Adibatla, Hyderabad, Telangana for merchant support, app feedback, or partnership queries."
         canonicalPath="/contact"
         keywords="Contact Vyapar Mitra, Vyapar Mitra support email, Adibatla Hyderabad office, Telangana business app support, vyaparmitraapp@gmail.com, Hyderabad local business software"
-        schemaJson={contactSchema}
+        schemaJson={CONTACT_SCHEMA}
       />
 
       <section className="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">

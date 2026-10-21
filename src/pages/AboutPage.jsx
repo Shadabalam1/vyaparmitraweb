@@ -3,29 +3,29 @@ import SEOHead from "../components/common/SEOHead";
 import { siteConfig } from "../config/siteConfig";
 import { Heart, Target, Shield, Compass, Sparkles, CheckCircle2 } from "lucide-react";
 
-export default function AboutPage() {
-  const aboutSchema = {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About Vyapar Mitra",
-    "description": "Learn about the mission, values, and origin of the Vyapar Mitra Android application, developed by Shadab Alam in Hyderabad, Telangana.",
-    "url": "https://vyaparmitra.xyz/about",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "Vyapar Mitra",
-      "founder": {
-        "@type": "Person",
-        "name": "Shadab Alam",
-      },
-      "foundingLocation": {
-        "@type": "Place",
-        "name": "Adibatla, Hyderabad, Telangana, India",
-      },
-      "url": "https://vyaparmitra.xyz",
-      "logo": "https://vyaparmitra.xyz/images/vyapar-mitra-logo-circle.jpg",
+const ABOUT_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Vyapar Mitra",
+  "description": "Learn about the mission, values, and origin of the Vyapar Mitra Android application, developed by Shadab Alam in Hyderabad, Telangana.",
+  "url": "https://vyaparmitra.xyz/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Vyapar Mitra",
+    "founder": {
+      "@type": "Person",
+      "name": "Shadab Alam",
     },
-  };
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Adibatla, Hyderabad, Telangana, India",
+    },
+    "url": "https://vyaparmitra.xyz",
+    "logo": "https://vyaparmitra.xyz/images/vyapar-mitra-logo-circle.jpg",
+  },
+};
 
+export default function AboutPage() {
   return (
     <>
       <SEOHead
@@ -33,7 +33,7 @@ export default function AboutPage() {
         description="Learn about Vyapar Mitra: why we built a simple, practical Android business management app for Indian shopkeepers and retailers, developed in Hyderabad, Telangana."
         canonicalPath="/about"
         keywords="About Vyapar Mitra, Indian MSME business software, Hyderabad startup, Adibatla Telangana, retail inventory management app, Shadab Alam developer"
-        schemaJson={aboutSchema}
+        schemaJson={ABOUT_SCHEMA}
       />
 
       {/* Page Header */}

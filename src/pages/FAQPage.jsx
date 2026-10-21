@@ -5,9 +5,22 @@ import { Search, ChevronDown, HelpCircle, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 import LaunchCTA from "../components/home/LaunchCTA";
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer,
+    },
+  })),
+};
+
 export default function FAQPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [openIds, setOpenIds] = useState(faqData.map((f) => f.id)); // All open on dedicated page or togglable
+  const [openIds, setOpenIds] = useState(faqData.map((f) => f.id));
 
   const toggle = (id) => {
     setOpenIds((prev) =>
@@ -21,19 +34,6 @@ export default function FAQPage() {
       faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqData.map((item) => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.answer,
-      },
-    })),
-  };
-
   return (
     <>
       <SEOHead
@@ -41,7 +41,7 @@ export default function FAQPage() {
         description="Find clear and honest answers about Vyapar Mitra: inventory features, sales recording, expenses, profit tracking, offline functionality and Google Play launch."
         canonicalPath="/faq"
         keywords="Vyapar Mitra FAQ, inventory app questions, retail POS offline help, Udhaar Khata support, billing app India guide"
-        schemaJson={faqSchema}
+        schemaJson={FAQ_SCHEMA}
       />
 
       <section className="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">

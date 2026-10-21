@@ -112,9 +112,6 @@ export default function SEOHead({
       pageSchemaScript.remove();
     }
 
-    // Scroll restoration
-    window.scrollTo(0, 0);
-
     return () => {
       const scriptToRemove = document.getElementById("page-dynamic-schema");
       if (scriptToRemove) {
@@ -122,6 +119,11 @@ export default function SEOHead({
       }
     };
   }, [title, description, canonicalPath, keywords, schemaJson]);
+
+  // Scroll to top ONLY on page navigation / route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [canonicalPath]);
 
   return null;
 }

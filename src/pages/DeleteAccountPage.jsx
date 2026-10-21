@@ -15,6 +15,20 @@ import {
   HelpCircle,
 } from "lucide-react";
 
+const DELETION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "VyaPar Mitra Account & Data Deletion Portal",
+  "description": "Official account and data deletion request portal for VyaPar Mitra Android app complying with Google Play Data Safety policies.",
+  "url": "https://vyaparmitra.xyz/delete-account",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vyapar Mitra",
+    "url": "https://vyaparmitra.xyz",
+    "email": "vyaparmitraapp@gmail.com",
+  },
+};
+
 export default function DeleteAccountPage() {
   const [formData, setFormData] = useState({
     email: "",
@@ -84,20 +98,6 @@ export default function DeleteAccountPage() {
     }
   };
 
-  const deletionSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "VyaPar Mitra Account & Data Deletion Portal",
-    "description": "Official account and data deletion request portal for VyaPar Mitra Android app complying with Google Play Data Safety policies.",
-    "url": "https://vyaparmitra.xyz/delete-account",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Vyapar Mitra",
-      "url": "https://vyaparmitra.xyz",
-      "email": "vyaparmitraapp@gmail.com",
-    },
-  };
-
   return (
     <>
       <SEOHead
@@ -105,7 +105,7 @@ export default function DeleteAccountPage() {
         description="Official account and cloud data deletion page for VyaPar Mitra Android app. Request permanent deletion of your Firebase account and cloud backup records."
         canonicalPath="/delete-account"
         keywords="Vyapar Mitra delete account, Google Play account deletion, delete user data com.shadab.vyaparmitra, purge Firebase backup"
-        schemaJson={deletionSchema}
+        schemaJson={DELETION_SCHEMA}
       />
 
       {/* Header Banner */}
