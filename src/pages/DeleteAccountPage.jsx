@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "../components/common/SEOHead";
 import { siteConfig } from "../config/siteConfig";
+import { submitAccountDeletionRequest } from "../utils/formSubmit";
 import {
   Trash2,
   ShieldAlert,
@@ -60,40 +61,14 @@ export default function DeleteAccountPage() {
     setStatus({ submitting: true, error: null, submitted: false });
 
     try {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: accessKey || "9ed79314-9ce5-451d-8589-581278a74dc8",
-          subject: "VyaPar Mitra Account & Data Deletion Request",
-          from_name: "VyaPar Mitra User Deletion",
-          email: formData.email,
-          business_name: formData.registeredBusinessName || "Not specified",
-          deletion_reason: formData.reason || "User requested deletion",
-          message: `User requested permanent deletion of their VyaPar Mitra account and associated Firebase cloud data. Registered Email: ${formData.email}`,
-        }),
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        setStatus({ submitting: false, submitted: true, error: null });
-        setFormData({ email: "", registeredBusinessName: "", reason: "", confirmation: false });
-      } else {
-        setStatus({
-          submitting: false,
-          submitted: false,
-          error: result.message || "Failed to submit request. Please email us directly.",
-        });
-      }
-    } catch {
+      await submitAccountDeletionRequest(formData);
+      setStatus({ submitting: false, submitted: true, error: null });
+      setFormData({ email: "", registeredBusinessName: "", reason: "", confirmation: false });
+    } catch (err) {
       setStatus({
         submitting: false,
         submitted: false,
-        error: `Network error. Please email us directly at ${siteConfig.contact.email} to process your deletion.`,
+        error: err.message || `Failed to submit request. Please email us directly at ${siteConfig.contact.email}.`,
       });
     }
   };

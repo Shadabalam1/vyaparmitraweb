@@ -90,3 +90,53 @@ export async function submitLaunchNotify(notifyInput) {
     body: encode({ "form-name": "launch-notify", notifyInput }),
   });
 }
+
+export async function submitAccountDeletionRequest(formData) {
+  const web3Key = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+  if (web3Key && web3Key.trim() !== "") {
+    const payload = {
+      access_key: web3Key.trim(),
+      subject: "VyaPar Mitra Account & Data Deletion Request",
+      from_name: "VyaPar Mitra User Deletion",
+      email: formData.email,
+      business_name: formData.registeredBusinessName || "Not specified",
+      deletion_reason: formData.reason || "User requested deletion",
+      message: `User requested permanent deletion of their VyaPar Mitra account and associated Firebase cloud data. Registered Email: ${formData.email}`,
+    };
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const result = await res.json();
+    if (!result.success) {
+      throw new Error(result.message || "Failed to submit deletion request to Web3Forms");
+    }
+    return result;
+  }
+
+  // Graceful Netlify Forms fallback if .env key is not set
+  const encode = (data) =>
+    Object.keys(data)
+      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
+      .join("&");
+
+  const res = await fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({
+      "form-name": "delete-account",
+      email: formData.email,
+      businessName: formData.registeredBusinessName || "Not specified",
+      reason: formData.reason || "User requested deletion",
+    }),
+  });
+
+  return res;
+}

@@ -171,6 +171,12 @@
       <input type="hidden" name="form-name" value="launch-notify" />
       <input type="text" name="notifyInput" />
     </form>
+    <form name="delete-account" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="delete-account" />
+      <input type="email" name="email" />
+      <input type="text" name="businessName" />
+      <textarea name="reason"></textarea>
+    </form>
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

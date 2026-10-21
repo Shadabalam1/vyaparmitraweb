@@ -1,18 +1,18 @@
 /**
  * Vyapar Mitra Central Configuration
  *
- * To enable the live Google Play Store download button across the entire website,
- * simply paste the official Google Play Store URL into PLAY_STORE_URL below.
- * When empty (""), all buttons throughout the site automatically display
- * "Coming Soon on Google Play" without any broken links or fake store badges.
+ * Configurable via .env environment variables:
+ * - VITE_PLAY_STORE_URL: Live Google Play Store URL
+ * - VITE_SITE_URL: Public website domain
+ * - VITE_SUPPORT_EMAIL: Support & contact email
  */
-export const PLAY_STORE_URL = "";
+export const PLAY_STORE_URL = import.meta.env.VITE_PLAY_STORE_URL || "";
 
 export const siteConfig = {
   name: "Vyapar Mitra",
   tagline: "Manage Inventory | Grow Business",
-  domain: "https://vyaparmitra.xyz",
-  appStatus: "Coming Soon on Google Play",
+  domain: import.meta.env.VITE_SITE_URL || "https://vyaparmitra.xyz",
+  appStatus: import.meta.env.VITE_PLAY_STORE_URL ? "Available on Google Play" : "Coming Soon on Google Play",
   
   // Hero Copy
   hero: {
@@ -24,7 +24,7 @@ export const siteConfig = {
 
   // Contact Information
   contact: {
-    email: "vyaparmitraapp@gmail.com",
+    email: import.meta.env.VITE_SUPPORT_EMAIL || "vyaparmitraapp@gmail.com",
     address: "Adibatla, Hyderabad, Telangana, India",
     location: "Adibatla, Hyderabad, India",
     helpHours: "Monday to Saturday, 9:00 AM - 7:00 PM IST",
